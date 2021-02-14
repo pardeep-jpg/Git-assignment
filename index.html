@@ -5,8 +5,64 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hello my name is pardeep kaur</title>
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+<script lang="javascript" type="text/javascript">
+    //Do all logic after document loaded
+    window.onload = () => {
+        btnToUpperCase = document.getElementById("btnToUpperCase")
+        btnToLowerCase = document.getElementById("btnToLowerCase")
+        errorMessage = document.getElementById("errorMessage")
+        
+        txtName = document.getElementById("txtName")
+        divResult = document.getElementById("divResult")
+        
+        //Convert to Upper case
+        btnToUpperCase.onclick = () =>
+        {
+            if(validate(txtName.value))
+            {
+                errorMessage.innerHTML = ""
+                const strUpper = txtName.value.toUpperCase()
+                divResult.innerHTML = `Result : ${strUpper}`
+            }
+            return false
+        } 
+        
+        //Convert to Lower case
+        btnToLowerCase.onclick = () =>
+        {
+            if(validate(txtName.value))
+            {
+                errorMessage.innerHTML = ""
+                const strLower = txtName.value.toLowerCase()
+                divResult.innerHTML = `Result : ${strLower}`
+            }
+            return false
+        } 
+
+        //Validation Function
+        let validate = (str) => {
+            if(str == '')
+            {
+                errorMessage.innerHTML = "Name Required"
+                return false
+            }
+            return true
+        }
+    }    
+    </script>
 </head>
 <body>
-    Doing my first assignment on the git hub
+    <h1>JavaScript String Handling</h1>
+    <form>
+        Enter Your Name: <input type="text" id="txtName" placeholder="Enter your name" />
+        <span id="errorMessage">*</span>
+        <div id="divResult">Result</div>
+        <button id="btnToUpperCase">Uppercase</button>
+        <button id="btnToLowerCase">Lowercase</button>
+    </form>
+
 </body>
 </html>
